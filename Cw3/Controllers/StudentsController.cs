@@ -1,6 +1,6 @@
 ﻿using System;
-using Cw3.DAL;
 using Cw3.Models;
+using Cw3.DAL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cw3.Controllers
@@ -17,29 +17,13 @@ namespace Cw3.Controllers
 
 
         [HttpGet]
-        // public string GetStudent(string orderBy)
-        // {
-        //     return $"Kowalski, Malewski, Andrzejewski sortowanie={orderBy}";
-        // }
-        public IActionResult GetStudent(string orderBy)
+        public IActionResult GetStudent()
         {
             return Ok(_dbService.GetStudents());
         }
 
 
         [HttpGet("{id}")]
-        // public IActionResult GetStudent(int id)
-        // {
-        //     if (id == 1)
-        //     {
-        //         return Ok("Kowalski");
-        //     }else if (id == 2)
-        //     {
-        //         return Ok("Malewski");
-        //     }
-        //
-        //     return NotFound("Nie znaleziono studenta");
-        // }
         public IActionResult GetStudent(int id)
         {
             if (_dbService.GetStudent(id) != null)
@@ -61,15 +45,6 @@ namespace Cw3.Controllers
 
 
         [HttpPut("{id}")]
-        // public IActionResult UpdateStudent(int id)
-        // {
-        //     if (id <4 && id>0)
-        //     {
-        //         return Ok("Aktualizacja zakończona");
-        //     }
-        //
-        //     return NotFound("Nie znaleziono studenta o takim id");
-        // }
         public IActionResult UpdateStudent(int id)
         {
             if (_dbService.GetStudent(id) != null)
@@ -83,15 +58,6 @@ namespace Cw3.Controllers
         }
         
         [HttpDelete("{id}")]
-        // public IActionResult DeleteStudent(int id)
-        // {
-        //     if (id <4 && id>0)
-        //     {
-        //         return Ok("Usuwanie zakończone");
-        //     }
-        //
-        //     return NotFound("Nie znaleziono studenta o takim id");
-        // }
         public IActionResult DeleteStudent(int id)
         {
             if (_dbService.GetStudent(id) != null)
@@ -105,5 +71,5 @@ namespace Cw3.Controllers
         }
 
 
-}
+    }
 }
